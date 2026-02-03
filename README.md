@@ -4,13 +4,10 @@ https://j0tracker.netlify.app
 GitHub Repo
 https://github.com/BANIMALS-NFT/Job-Tracker
 
-Screenshot
-![Job Application Tracker Screenshot](Screenshot.png)
+Screenshot ![Job Application Tracker Screenshot](Screenshot.png)
 
 
 Job Application Tracker
-
-
 
 What it is
 
@@ -57,6 +54,7 @@ Deploy
 Netlify.  Drag and drop the folder, or connect GitHub repo.
 
 Vercel.  Import the repo as a static site.
+
 
 
 
