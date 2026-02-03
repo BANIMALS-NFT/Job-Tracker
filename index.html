@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Application Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="wrap">
+    <h1>Job Application Tracker</h1>
+    <p class="sub">Track applications, status, follow ups, and notes.  Data saves in your browser.</p>
+  </header>
+
+  <main class="wrap grid">
+    <section class="card">
+      <h2>Add or Update</h2>
+
+      <form id="jobForm" autocomplete="off">
+        <input type="hidden" id="jobId" />
+
+        <label>
+          Company
+          <input id="company" required maxlength="60" placeholder="Example  Acme Health" />
+        </label>
+
+        <label>
+          Role
+          <input id="role" required maxlength="60" placeholder="Example  Junior Web Developer" />
+        </label>
+
+        <label>
+          Location
+          <input id="location" maxlength="60" placeholder="Example  Remote  US" />
+        </label>
+
+        <div class="row">
+          <label>
+            Date applied
+            <input id="dateApplied" type="date" />
+          </label>
+
+          <label>
+            Follow up date
+            <input id="followUp" type="date" />
+          </label>
+        </div>
+
+        <label>
+          Status
+          <select id="status">
+            <option>Applied</option>
+            <option>Interviewing</option>
+            <option>Offer</option>
+            <option>Rejected</option>
+            <option>Paused</option>
+          </select>
+        </label>
+
+        <label>
+          Notes
+          <textarea id="notes" rows="4" maxlength="500" placeholder="Key details, recruiter name, next step, or reminders."></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit" id="saveBtn">Save</button>
+          <button type="button" id="resetBtn" class="secondary">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="topbar">
+        <div>
+          <h2>Applications</h2>
+          <p class="sub" id="counts"></p>
+        </div>
+
+        <div class="toolbox">
+          <input id="search" placeholder="Search company or role" />
+          <select id="statusFilter">
+            <option value="ALL">All statuses</option>
+            <option>Applied</option>
+            <option>Interviewing</option>
+            <option>Offer</option>
+            <option>Rejected</option>
+            <option>Paused</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="exportBtn" class="secondary">Export JSON</button>
+        <button type="button" id="clearAllBtn" class="danger">Clear all</button>
+      </div>
+
+      <div class="tableWrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Applied</th>
+              <th>Follow up</th>
+              <th class="right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="list"></tbody>
+        </table>
+      </div>
+
+      <p class="tiny">Tip.  Edit uses the same form.  Export helps you back up data.</p>
+    </section>
+  </main>
+
+  <footer class="wrap tiny">
+    Built by Clyde Murray.  LocalStorage only.  No network calls.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
